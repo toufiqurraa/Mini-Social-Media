@@ -17,6 +17,8 @@ import FlashMessages from './components/FlashMessages'
 import StateContext from './StateContext'
 import DispatchContext from './DispatchContext'
 import Profile from './components/Profile'
+import EditPost from './components/EditPost'
+import NotFound from './components/NotFound'
 
 const Main = () => {
   const initialState = {
@@ -75,8 +77,12 @@ const Main = () => {
               <CreatePost />
             </Route>
 
-            <Route path='/post/:id'>
+            <Route path='/post/:id' exact>
               <ViewSinglePost />
+            </Route>
+
+            <Route path='/post/:id/edit' exact>
+              <EditPost />
             </Route>
 
             <Route path='/about-us' exact>
@@ -89,6 +95,14 @@ const Main = () => {
 
             <Route path='/profile/:username'>
               <Profile />
+            </Route>
+
+            <Route path='/post/profile/:username'>
+              <Profile />
+            </Route>
+
+            <Route>
+              <NotFound />
             </Route>
           </Switch>
 
