@@ -36,7 +36,7 @@ export default withRouter(function ViewSinglePost(props) {
     return () => {
       request.cancel()
     }
-  }, [])
+  }, [id])
 
   if (!isLoading && !post) {
     return <NotFound />
